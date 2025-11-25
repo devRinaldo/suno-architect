@@ -51,7 +51,11 @@ export default function Termos() {
 
           <section>
             <h2 className="text-2xl font-semibold mb-4 text-white">7. Contato</h2>
-            <p>Dúvidas? Entre em contato via GitHub: <a href="https://github.com/devRinaldo" className="text-neon-purple hover:underline">@devRinaldo</a></p>
+            <p>Dúvidas sobre os termos?</p>
+            <div className="mt-2 space-y-2">
+              <p>📧 Email: <a href="mailto:mundial.cel11@gmail.com" className="text-neon-purple hover:underline">mundial.cel11@gmail.com</a></p>
+              <p>📱 WhatsApp: <a href="https://wa.me/5561985552211" className="text-neon-purple hover:underline" target="_blank" rel="noopener noreferrer">+55 61 98555-2211</a></p>
+            </div>
           </section>
 
           <p className="text-sm text-gray-500 mt-8">Última atualização: {new Date().toLocaleDateString('pt-BR')}</p>

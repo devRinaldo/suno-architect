@@ -48,7 +48,11 @@ export default function Sobre() {
           <section>
             <h2 className="text-2xl font-semibold mb-4 text-white">📧 Contato</h2>
             <p>Sugestões, parcerias ou dúvidas?</p>
-            <p className="mt-2">Entre em contato via GitHub: <a href="https://github.com/devRinaldo/suno-architect" className="text-neon-purple hover:underline" target="_blank" rel="noopener noreferrer">github.com/devRinaldo/suno-architect</a></p>
+            <div className="mt-4 space-y-2">
+              <p>📧 Email: <a href="mailto:mundial.cel11@gmail.com" className="text-neon-purple hover:underline">mundial.cel11@gmail.com</a></p>
+              <p>📱 WhatsApp: <a href="https://wa.me/5561985552211" className="text-neon-purple hover:underline" target="_blank" rel="noopener noreferrer">+55 61 98555-2211</a></p>
+              <p>💻 GitHub: <a href="https://github.com/devRinaldo" className="text-neon-purple hover:underline" target="_blank" rel="noopener noreferrer">@devRinaldo</a></p>
+            </div>
           </section>
 
           <section>
