@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import ResultCard from './components/ResultCard'
 import CopyButton from './components/CopyButton'
+// import AdBanner from './components/AdBanner' // Descomente quando tiver AdSense aprovado
 
 // Componente de botão de copiar para tags
 function CopyTagButton({ text }: { text: string }) {
@@ -260,13 +261,16 @@ export default function Home() {
           </div>
           
           <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-white via-neon-purple to-neon-blue bg-clip-text text-transparent">
-            Suno Architect
+            MusicaIA
           </h1>
           
           <p className="text-gray-400 text-lg">
-            Monte sua música escolhendo idioma, ritmo e tema
+            Seu gerador de música automático com inteligência artificial
           </p>
         </header>
+
+        {/* Anúncio Topo - Descomente quando tiver AdSense aprovado */}
+        {/* <AdBanner dataAdSlot="1234567890" dataAdFormat="horizontal" /> */}
 
         {/* Formulário */}
         <section className="mb-10">
@@ -444,6 +448,9 @@ export default function Home() {
           </div>
         )}
 
+        {/* Anúncio Meio - Descomente quando tiver AdSense aprovado */}
+        {/* {result && <AdBanner dataAdSlot="0987654321" />} */}
+
         {/* Results */}
         {result && (
           <section className="space-y-6">
@@ -503,8 +510,15 @@ export default function Home() {
           </section>
         )}
 
-        <footer className="mt-16 text-center text-gray-500 text-sm">
+        <footer className="mt-16 text-center text-gray-500 text-sm space-y-4">
+          <div className="flex justify-center gap-6 flex-wrap">
+            <a href="/sobre" className="hover:text-neon-purple transition-colors">Sobre</a>
+            <a href="/termos" className="hover:text-neon-purple transition-colors">Termos de Uso</a>
+            <a href="/privacidade" className="hover:text-neon-purple transition-colors">Privacidade</a>
+            <a href="https://github.com/devRinaldo/suno-architect" target="_blank" rel="noopener noreferrer" className="hover:text-neon-purple transition-colors">GitHub</a>
+          </div>
           <p>Feito com 💜 para criadores musicais</p>
+          <p className="text-xs">© {new Date().getFullYear()} MusicaIA - Todos os direitos reservados</p>
         </footer>
       </div>
     </main>

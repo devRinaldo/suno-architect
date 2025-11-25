@@ -1,6 +1,6 @@
-# 🎵 Suno Architect
+# 🎵 MusicaIA
 
-Gerador inteligente de prompts musicais com IA para Suno AI. Crie músicas profissionais escolhendo idioma, gênero, artista de referência e tema.
+Seu gerador de música automático com inteligência artificial. Crie músicas profissionais escolhendo idioma, gênero, artista de referência e tema.
 
 ## ✨ Features
 
