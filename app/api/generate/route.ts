@@ -152,6 +152,20 @@ export async function handleGenerateRequestBody(body: any): Promise<{ status: nu
       result.imagePrompt = `Abstract album cover art for a ${result.style} song titled "${result.title}", high quality, 4k`
     }
 
+    // Helper to sanitize tags
+    const sanitizeTags = (tags: string) => {
+      if (!tags) return ''
+      // Split by comma or space, filter empty, ensure # prefix
+      return tags.split(/[\s,]+/)
+        .filter(t => t.length > 0)
+        .map(t => t.startsWith('#') ? t : `#${t}`)
+        .join(' ')
+    }
+
+    result.tagsYoutube = sanitizeTags(result.tagsYoutube)
+    result.tagsReels = sanitizeTags(result.tagsReels)
+    result.tagsTiktok = sanitizeTags(result.tagsTiktok)
+
     logger.info('Generate success', { durationMs: Date.now() - started })
     return { status: 200, body: result }
   } catch (error: unknown) {
