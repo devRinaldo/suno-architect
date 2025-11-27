@@ -6,7 +6,7 @@ interface ResultCardProps {
   title: string
   subtitle: string
   content: string
-  icon: 'style' | 'lyrics'
+  icon: 'style' | 'lyrics' | 'image'
 }
 
 export default function ResultCard({ title, subtitle, content, icon }: ResultCardProps) {
@@ -20,13 +20,21 @@ export default function ResultCard({ title, subtitle, content, icon }: ResultCar
             w-10 h-10 rounded-xl flex items-center justify-center
             ${icon === 'style' 
               ? 'bg-gradient-to-br from-neon-purple to-neon-blue' 
-              : 'bg-gradient-to-br from-neon-pink to-neon-purple'
+              : icon === 'image'
+                ? 'bg-gradient-to-br from-green-400 to-emerald-600'
+                : 'bg-gradient-to-br from-neon-pink to-neon-purple'
             }
           `}>
             {icon === 'style' ? (
               <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
                   d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" 
+                />
+              </svg>
+            ) : icon === 'image' ? (
+              <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
+                  d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" 
                 />
               </svg>
             ) : (

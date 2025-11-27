@@ -40,6 +40,8 @@ interface GenerationResult {
   tagsYoutube: string
   tagsReels: string
   tagsTiktok: string
+  imagePrompt: string
+  videoPrompts?: string[]
 }
 
 // Idiomas disponíveis
@@ -467,6 +469,49 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-6">
               <ResultCard title="Estilo Musical" subtitle="Copie para o 'Song Description' do Suno" content={result.style} icon="style" />
               <ResultCard title="Letra" subtitle="Copie para o 'Lyrics' do Suno" content={result.lyrics} icon="lyrics" />
+            </div>
+
+            {/* Prompt de Imagem e Vídeo */}
+            <div className="grid md:grid-cols-2 gap-6">
+              <ResultCard 
+                title="Capa do Álbum (Prompt)" 
+                subtitle="Copie para Midjourney, DALL-E ou Bing Image Creator" 
+                content={result.imagePrompt || ''} 
+                icon="image" 
+              />
+              
+              {/* Video Prompts */}
+              <div className="bg-dark-800 rounded-2xl border border-dark-600 overflow-hidden transition-all duration-300 hover:border-neon-purple/50">
+                <div className="flex items-center justify-between p-4 border-b border-dark-600">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br from-orange-500 to-red-600">
+                      <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-white">Prompts de Vídeo</h3>
+                      <p className="text-xs text-gray-400">Para Runway, Pika ou Sora</p>
+                    </div>
+                  </div>
+                  <CopyButton text={result.videoPrompts?.join('\n\n') || ''} />
+                </div>
+                
+                <div className="p-4 h-48 overflow-y-auto custom-scrollbar">
+                  {result.videoPrompts && result.videoPrompts.length > 0 ? (
+                    <div className="space-y-3">
+                      {result.videoPrompts.map((prompt, idx) => (
+                        <div key={idx} className="p-3 rounded-lg bg-dark-900 border border-dark-600 text-sm text-gray-300">
+                          <span className="text-neon-purple font-bold text-xs uppercase mb-1 block">Cena {idx + 1}</span>
+                          {prompt}
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="text-gray-500 text-sm text-center italic mt-10">Nenhum prompt de vídeo gerado.</p>
+                  )}
+                </div>
+              </div>
             </div>
 
             {/* Tags para Redes Sociais */}
